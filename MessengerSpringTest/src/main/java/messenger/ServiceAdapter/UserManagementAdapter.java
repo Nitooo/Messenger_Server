@@ -25,7 +25,7 @@ public class UserManagementAdapter {
 		return userManagementService.addUser(username, passwort);
 	}
 	
-	@RequestMapping(value = "/deleteUser", method = RequestMethod.GET)
+	@RequestMapping(value = "/deleteUser", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
 	public boolean deleteUser(@RequestBody User user) {
 		return userManagementService.deleteUser(user);
 	}

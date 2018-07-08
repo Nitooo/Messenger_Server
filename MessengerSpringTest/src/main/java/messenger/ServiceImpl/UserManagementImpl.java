@@ -29,11 +29,11 @@ public class UserManagementImpl implements UserManagement, Serializable {
 	@Override
 	@Transactional
 	public int addUser(String username, String password) {
-//		try{
-//			userDbService.getUserByName(username);
-//			return 1;
-//		} catch (NoResultException nre) {
-//		}	
+		try{
+			userDbService.getUserByName(username);
+			return 1;
+		} catch (NoResultException nre) {
+		}	
 		
 		User user = new User();
 		user.setUsername(username);

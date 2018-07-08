@@ -3,6 +3,7 @@ package messenger.ServiceAdapter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,8 +30,9 @@ public class UserManagementAdapter {
 		return userManagementService.deleteUser(user);
 	}
 	
-	@RequestMapping(value = "/updateUser", method = RequestMethod.GET)
+	@RequestMapping(value = "/updateUser", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
 	public boolean updateUser(@RequestBody User user) {
+		System.out.println(user.getPassword());
 		return userManagementService.updateUser(user);
 	}
 	
